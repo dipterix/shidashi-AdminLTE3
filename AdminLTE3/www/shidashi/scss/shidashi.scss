@@ -431,6 +431,7 @@ body.iframe-mode-fullscreen .content-wrapper.iframe-mode {
 
 
 // Sidebar-related
+
 .nav-sidebar .nav-header.nav-divider {
   display: flex;
   color: $light-gray;
@@ -458,6 +459,13 @@ body.dark-mode .nav-sidebar .nav-header.nav-divider {
   &::before,
   &::after {
     border-top: 1px solid $light-dark;
+  }
+}
+
+.sidebar-collapse .nav-sidebar .nav-header.nav-divider {
+  text-align: right;
+  &::before {
+    border-top: transparent!important;
   }
 }
 

@@ -341,6 +341,14 @@ pre {
   & .identifier { color: $code-color-identifier; }
   & .string { color: $code-color-string; }
 
+  &.pre-compact {
+    white-space: normal;
+
+    & code {
+      white-space: break-spaces;
+    }
+  }
+
   &.overflow-visible-on-hover:hover {
     max-width: unset;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.125), 0 1px 50px rgba(0, 0, 0, 0.2);
@@ -423,6 +431,7 @@ body.iframe-mode-fullscreen .content-wrapper.iframe-mode {
 
 
 // Sidebar-related
+
 .nav-sidebar .nav-header.nav-divider {
   display: flex;
   color: $light-gray;
@@ -440,6 +449,7 @@ body.iframe-mode-fullscreen .content-wrapper.iframe-mode {
     flex: 1;
     padding: 0 12px;
     text-align: center;
+    display: ruby;
   }
 }
 
@@ -449,6 +459,13 @@ body.dark-mode .nav-sidebar .nav-header.nav-divider {
   &::before,
   &::after {
     border-top: 1px solid $light-dark;
+  }
+}
+
+.sidebar-collapse .nav-sidebar .nav-header.nav-divider {
+  text-align: right;
+  &::before {
+    border-top: transparent!important;
   }
 }
 

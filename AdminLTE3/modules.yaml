@@ -9,16 +9,19 @@ divider:
     order: 1000
 modules:
   demo:
-    icon: "circle"
+    icon: "tachometer-alt"
     label: "Dashboard"
     badge: New|bg-red
     order: 99
   getstarted:
     label: "Get Started"
+    icon: "microchip"
     order: 2
   filestructure:
     label: "File Structure"
-    order: 2
+    icon: "folder"
+    badge: "TODO"
+    order: 3
   card:
     order: 102
     icon: "columns"
@@ -31,7 +34,9 @@ modules:
     order: 1001
     label: "Page 404"
     badge: "not found?|badge-info"
+    icon: "exclamation"
   page500:
     order: 1002
     label: "Page 500"
+    icon: "bug"
     badge: "error!|badge-warning"

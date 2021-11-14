@@ -232,6 +232,7 @@ ui_demo_details <- function(){
 
 server_demo <- function(input, output, session, ...){
 
+  shared_data <- shidashi::register_session_id(session)
   event_data <- register_session_events(session)
   local_data <- reactiveValues()
 
@@ -315,8 +316,7 @@ server_demo <- function(input, output, session, ...){
       geom_rug(col="steelblue",alpha=0.1, size=1.5) + ggtheme
   })
 
-
-  observeEvent(input$refresh, {
+  run_analysis <- function(){
     show_notification(
       title = "Generating analysis...",
       subtitle = "This might take a while",
@@ -340,6 +340,14 @@ server_demo <- function(input, output, session, ...){
               sample(LETTERS, 20000, replace = TRUE)),
       value=c( rnorm(500, 10, 5), rnorm(500, 13, 1), rnorm(500, 18, 1), rnorm(20, 25, 4), rnorm(100, 12, 1), rnorm(20000, 15, 30) )
     )
+  }
+  observeEvent(input$refresh, {
+    run_analysis()
+  })
+  observeEvent(shared_data$reactives[[ns("refresh")]], {
+    if(shared_data$reactives[[ns("refresh")]] > 0){
+      run_analysis()
+    }
   })
   output$distibution_plot <- renderPlot({
     validate(

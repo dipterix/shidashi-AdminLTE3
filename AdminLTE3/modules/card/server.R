@@ -15,8 +15,6 @@ if(FALSE){
 #' Defines the module server
 server <- function(input, output, session, ...){
 
-  shared_data <- shidashi::register_session_id(session)
-
   output$infobox_progress <- renderProgress({
     val <- input$infobox_make_progress %% 5
     if(val == 2){

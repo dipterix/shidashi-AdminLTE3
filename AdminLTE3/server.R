@@ -9,7 +9,10 @@ if(FALSE){
 
 server <- function(input, output, session){
 
-  # ._template_modules_. <- fastmap::fastmap()
+  # Sync input ID
+  shared_data <- shidashi::register_session_id(session)
+  shared_data$enable_broadcast()
+  shared_data$enable_sync()
 
   # Fixed usage, call modules
   shiny::observeEvent(session$clientData$url_search, {
