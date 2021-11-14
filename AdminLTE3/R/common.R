@@ -1,13 +1,13 @@
 library(shiny)
 page_title <- function(complete = TRUE){
   if(complete){
-    "Shi(ny) Dash(board) | AdminLTE 3"
+    "Shiny Dash | AdminLTE 3"
   } else {
-    "ShiDashi"
+    "Shiny-Dash"
   }
 }
 page_logo <- function(size = c("normal", "small", "large")){
-  "dist/img/AdminLTELogo.png"
+  "shidashi/img/icon.png"
 }
 page_loader <- function(){
   # if no loader is needed, then return NULL

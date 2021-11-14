@@ -1,18 +1,32 @@
+divider:
+  "Components":
+    order: 1.0
+  "Misc":
+    order: 100.0
 groups:
   "Show Case":
+    order: 0.0
+    open: yes
     icon: "tachometer-alt"
 modules:
   demo:
-    order: 0.0
     icon: "circle"
     label: "Dashboard"
     group: "Show Case"
     badge: New|bg-red
   card:
-    order: 1.0
+    order: 2.0
     icon: "columns"
     label: "Cards"
   widgets:
-    order: 2.0
+    order: 3.0
     icon: "th"
     label: "Widgets"
+  page404:
+    order: 101.0
+    label: "Page 404"
+    badge: "not found?|badge-info"
+  page500:
+    order: 102.0
+    label: "Page 500"
+    badge: "error!|badge-warning"

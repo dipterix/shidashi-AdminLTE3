@@ -23,6 +23,29 @@ ui_flip_box <- function(){
       width = 12L,
       infobox_with_code(
         flip_box(
+          active_on = "manual",
+          inputId = ns("flip_demo_3"),
+          front = info_box(
+            icon = "arrow-right",
+            p(
+              "This is the front side. Click this button"
+            ),
+            actionButton(ns("flip_btn_1"), "Flip")
+          ),
+          back = info_box(
+            icon = "arrow-left",
+            p(
+              "This is the back side. Click this button"
+            ),
+            actionButton(ns("flip_btn_2"), "Flip again")
+          )
+        )
+      )
+    ),
+    column(
+      width = 12L,
+      infobox_with_code(
+        flip_box(
           active_on = "click-front",
           inputId = ns("flip_demo_2"),
           front = info_box(
@@ -39,29 +62,6 @@ ui_flip_box <- function(){
               "Once the progress finishes, the box will flip back. "
             ),
             actionButton(ns("show_progress"), "Show Progress")
-          )
-        )
-      )
-    ),
-    column(
-      width = 12L,
-      infobox_with_code(
-        flip_box(
-          active_on = "manual",
-          inputId = ns("flip_demo_3"),
-          front = info_box(
-            icon = "arrow-right",
-            p(
-              "This is the front side. Click this button"
-            ),
-            actionButton(ns("flip_btn_1"), "Flip")
-          ),
-          back = info_box(
-            icon = "arrow-left",
-            p(
-              "This is the back side. Click this button"
-            ),
-            actionButton(ns("flip_btn_2"), "Flip again")
           )
         )
       )
