@@ -1,0 +1,45 @@
+divider:
+  "Tutorial":
+    order: 1
+  "Show Case":
+    order: 98
+  "Components":
+    order: 100
+  "Misc":
+    order: 1000
+modules:
+  import_raw:
+    label: "Import Data"
+    order: 0
+  demo:
+    icon: "tachometer-alt"
+    label: "Dashboard"
+    badge: New|bg-red
+    order: 99
+  getstarted:
+    label: "Get Started"
+    icon: "microchip"
+    order: 2
+  filestructure:
+    label: "File Structure"
+    icon: "folder"
+    badge: "TODO"
+    order: 3
+  card:
+    order: 102
+    icon: "columns"
+    label: "Cards"
+  widgets:
+    order: 103
+    icon: "th"
+    label: "Widgets"
+  page404:
+    order: 1001
+    label: "Page 404"
+    badge: "not found?|badge-info"
+    icon: "exclamation"
+  page500:
+    order: 1002
+    label: "Page 500"
+    icon: "bug"
+    badge: "error!|badge-warning"
