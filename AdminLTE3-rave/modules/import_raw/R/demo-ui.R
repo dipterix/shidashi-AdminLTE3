@@ -161,7 +161,7 @@ module_server <- function(input, output, session, tools, ...){
 
       shiny::textInput(ns("loader_electrodes"), label = elec_label, value = electrodes, placeholder = "E.g. 1-84,86,90-100"),
 
-      shiny::numericInput(ns("loader_sample_rate"), label = "Sample rate", min = 0, value = preproc$`@lfp_ecog_sample_rate`),
+      shiny::numericInput(ns("loader_sample_rate"), label = "Sample rate (Hz)", min = 0, value = preproc$`@lfp_ecog_sample_rate`),
 
       shiny::selectInput(ns("loader_physical_unit"), label = "Physical unit", choices = c("as-is (no change)", "uV", "mV", "V"), selected = physical_unit),
 
@@ -262,7 +262,7 @@ module_server <- function(input, output, session, tools, ...){
     electrodes_info <- unlist(lapply(etypes_unique, function(type){
       sel <- etypes == type
       if(any(sel)){
-        raveio::glue("{type} electrodes: {dipsaus::deparse_svec(electrodes[sel])} (sample rate: {srates[sel][[1]]})")
+        raveio::glue("{type} electrodes: {dipsaus::deparse_svec(electrodes[sel])} (sample rate: {srates[sel][[1]]} Hz)")
       }
     }))
     physical_unit <- input$loader_physical_unit
@@ -284,7 +284,11 @@ module_server <- function(input, output, session, tools, ...){
             ),
             shiny::tags$li(raveio::glue("Electrodes already imported (*): {already_loaded}"))
           ),
-          shiny::p("Ready to import?", shiny::br(), shiny::tags$small("(*) These electrodes has been imported before and their data will not be altered nor removed."))
+          shiny::p("Ready to import? (**)",
+                   shiny::br(),
+                   shiny::tags$small("(*) These electrodes has been imported before and their data will not be altered nor removed."),
+                   shiny::br(),
+                   shiny::tags$small("(**) Once imported, you will not be able to change the block number, sample rate, nor to delete/alter the electrodes that have been imported."))
         ),
         footer = shiny::tagList(
           shiny::modalButton("Wait a second"),
