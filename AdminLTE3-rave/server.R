@@ -7,6 +7,14 @@ if(FALSE){
   )
 }
 
+if(system.file(package = 'raveio') != ""){
+  if(dir.exists("./_pipelines")) {
+    raveio::pipeline_root(c("./_pipelines", ".", file.path(raveio:::R_user_dir('raveio', 'data'), "pipelines")))
+  } else {
+    raveio::pipeline_root(c(".", file.path(raveio:::R_user_dir('raveio', 'data'), "pipelines")))
+  }
+}
+
 server <- function(input, output, session){
 
   # Sync input ID
