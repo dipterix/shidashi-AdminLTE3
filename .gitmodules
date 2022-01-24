@@ -1,3 +1,4 @@
 [submodule "rave-pipelines"]
 	path = rave-pipelines
 	url = https://github.com/dipterix/rave-pipelines
+	branch = main
