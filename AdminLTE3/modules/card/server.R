@@ -101,16 +101,16 @@ server <- function(input, output, session, ...){
   })
 
   observeEvent(input$card_control_3_collapse, {
-    card_operate("card_control_3", "collapse")
+    card_operate(inputId = "card_control_3", method = "collapse")
   })
   observeEvent(input$card_control_3_expand, {
-    card_operate("card_control_3", "expand")
+    card_operate(inputId = "card_control_3", method = "expand")
   })
   observeEvent(input$card_control_3_maximize, {
-    card_operate("card_control_3", "maximize")
+    card_operate(inputId = "card_control_3", method = "maximize")
   })
   observeEvent(input$card_control_3_minimize, {
-    card_operate("card_control_3", "minimize")
+    card_operate(inputId = "card_control_3", method = "minimize")
   })
 
 }
