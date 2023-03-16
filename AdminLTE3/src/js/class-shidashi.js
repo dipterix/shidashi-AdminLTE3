@@ -827,10 +827,10 @@ class Shidashi {
     }
 
     // scroll-top widget
-    const gotop_el = $(".back-to-top,.ravedash-back-to-top");
-    const gotop_btn = $(".back-to-top .btn-go-top,.ravedash-back-to-top .btn-go-top");
-    const root_btn = $(".back-to-top .dropdown-toggle,.ravedash-back-to-top .dropdown-toggle");
-    const menu = $(".back-to-top .dropdown-menu,.ravedash-back-to-top .dropdown-menu");
+    const gotop_el = $(".back-to-top,.shidashi-back-to-top");
+    const gotop_btn = $(".back-to-top .btn-go-top,.shidashi-back-to-top .btn-go-top");
+    const root_btn = $(".back-to-top .dropdown-toggle,.shidashi-back-to-top .dropdown-toggle");
+    const menu = $(".back-to-top .dropdown-menu,.shidashi-back-to-top .dropdown-menu");
     const anchors = $(".shidashi-anchor");
 
     // Scroll-top widgets
@@ -1016,26 +1016,26 @@ class Shidashi {
       }
     });
 
-    $('.rave-button').click(function(evt){
+    $('.shidashi-button').click(function(evt){
       let el = this;
-      let action = el.getAttribute("rave-action");
+      let action = el.getAttribute("shidashi-action");
       if(typeof action === "string"){
         try {
           action = JSON.parse(action);
 
           if( typeof action.type !== "string" ) {
-            console.warn("Cannot parse RAVE-action: " + action);
+            console.warn("Cannot parse shidashi-action: " + action);
             return;
           }
           // check if body has parent-frame class
-          _this.shinySetInput("@rave_action@", {
+          _this.shinySetInput("@shidashi_action@", {
             type: action.type,
             details: action,
             element_class: evt.target.className
           }, true, true);
 
         } catch (e) {
-          console.warn("Cannot parse RAVE-action: " + action);
+          console.warn("Cannot parse shidashi-action: " + action);
         }
       }
     });
@@ -1052,7 +1052,7 @@ class Shidashi {
 
       this.matchSelector(
         evt.target,
-        '.ravedash-output-widget[data-type="standalone"]',
+        '.shidashi-output-widget[data-type="standalone"]',
         (el) => {
           let outputId = el.getAttribute("data-target");
           if( outputId.startsWith(this._moduleId + "-") ) {
@@ -1078,7 +1078,7 @@ class Shidashi {
         (el) => {
           const $card = $(el).parents(".card");
           if(!$card.length){ return; }
-          $($card[0]).find(".rave-optional").toggleClass("soft-hidden");
+          $($card[0]).find(".shidashi-optional").toggleClass("soft-hidden");
         }
       );
 
@@ -1105,7 +1105,7 @@ class Shidashi {
     this.$document.on("keydown", (evt) => {
       if(evt.key === "Enter" && (evt.ctrlKey || evt.metaKey)) {
         evt.preventDefault();
-        this.shinySetInput("@rave_action@", {
+        this.shinySetInput("@shidashi_action@", {
           type: "run_analysis"
         }, true, true);
       }
@@ -1239,7 +1239,7 @@ class Shidashi {
     });
 
     this.shinyHandler("shutdown_session", (params) => {
-      console.log("Shutting down RAVE...")
+      console.log("Shutting down Session...")
       window.close();
     });
 

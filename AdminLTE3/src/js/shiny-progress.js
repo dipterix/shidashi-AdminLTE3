@@ -2,12 +2,24 @@ import $ from 'jquery';
 
 function registerProgressOutput(Shiny) {
   const progressOutputBinding = new Shiny.OutputBinding();
-
+  const clsName = "shidashi-progress-output";
   progressOutputBinding.name = "shidashi.progressOutputBinding";
 
   $.extend(progressOutputBinding, {
     find: function(scope) {
-      return $(scope).find(".shidashi-progress-output");
+      const $scope = $(scope);
+      const re = [];
+
+      $scope.each((i, el) => {
+        const $el = $(el);
+        if( $el.hasClass( clsName ) ) {
+          re.push(el);
+        } else {
+          $el.find( `.${ clsName }` ).each( re.push );
+        }
+      })
+
+      return $(re);
     },
     renderValue: function(el, value) {
       let v = parseInt(value.value);
@@ -39,6 +51,9 @@ function registerProgressOutput(Shiny) {
   Shiny.outputBindings.register(
     progressOutputBinding,
     "shidashi.progressOutputBinding");
+
+  // BindAll outputs since the outputs are registered after shiny connection
+  Shiny.bindAll(".shidashi-progress-output");
 }
 
 export { registerProgressOutput }

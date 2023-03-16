@@ -3,11 +3,24 @@ import ClipboardJS from 'clipboard';
 
 function registerClipboardOutput(Shiny, shidashi) {
   const clipboardOutputBinding = new Shiny.OutputBinding();
+  const clsName = "shidashi-clipboard-output";
   clipboardOutputBinding.name = "shidashi.clipboardOutputBinding";
 
   $.extend(clipboardOutputBinding, {
     find: function(scope) {
-      return $(scope).find(".shidashi-clipboard-output");
+      const $scope = $(scope);
+      const re = [];
+
+      $scope.each((i, el) => {
+        const $el = $(el);
+        if( $el.hasClass( clsName ) ) {
+          re.push(el);
+        } else {
+          $el.find( `.${ clsName }` ).each( re.push );
+        }
+      })
+
+      return $(re);
     },
     renderValue: function(el, value) {
       let el_ = $(el);
@@ -26,6 +39,8 @@ function registerClipboardOutput(Shiny, shidashi) {
   });
 
   Shiny.outputBindings.register(clipboardOutputBinding, "shidashi.clipboardOutputBinding");
+
+  Shiny.bindAll(".shidashi-clipboard-output");
 
   // No need to re-register because they use delegation
   new ClipboardJS(".clipboard-btn").on('success', function(e) {

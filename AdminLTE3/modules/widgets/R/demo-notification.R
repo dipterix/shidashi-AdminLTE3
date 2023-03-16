@@ -10,7 +10,7 @@ ui_notification <- function(){
     actionButton(ns("notif_5"), "Notification that does not close", width = "auto"),
     actionButton(ns("notif_6"), "With shiny components", width = "auto"),
     actionButton(ns("notif_7"), "With progress bar", width = "auto"),
-    actionButton(ns("notif_8"), "Clear progress bar", width = "auto")
+    actionButton(ns("notif_8"), "Clear notifications", width = "auto")
   )
 }
 

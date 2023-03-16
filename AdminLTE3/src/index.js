@@ -52,8 +52,8 @@ function initShidashi() {
       id : module_id,
       label : item[0].innerText.trim()
     };
-    shidashi.shinySetInput("@rave_action@", data, true, true);
-    // shidashi.notifyIframes("shinySetInput", ["@rave_action@", data, true, true]);
+    shidashi.shinySetInput("@shidashi_action@", data, true, true);
+    // shidashi.notifyIframes("shinySetInput", ["@shidashi_action@", data, true, true]);
 
     shidashi.removeClass("body", "scroller-not-top navbar-hidden");
     shidashi.notifyIframes("resumeStatus", [shidashi]);
@@ -105,6 +105,7 @@ function registerShidashi(shiny) {
 
   return( shidashi );
 }
+
 
 export { initShidashi, registerShidashi };
 
