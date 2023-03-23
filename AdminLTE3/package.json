@@ -16,7 +16,7 @@
     "webpack": "^5.73.0",
     "webpack-cli": "^4.10.0"
   },
-  "name": "rave-pipelines",
+  "name": "shidashi-templates",
   "version": "0.0.1",
   "description": "Shidashi Templates",
   "private": true,
@@ -28,12 +28,6 @@
     "type": "git",
     "url": "git+https://github.com/dipterix/shidashi-templates.git"
   },
-  "keywords": [
-    "iEEG",
-    "Analysis",
-    "Visualization",
-    "Pipelines"
-  ],
   "author": "Zhengjia Wang",
   "license": "MIT",
   "bugs": {

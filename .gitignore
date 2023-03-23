@@ -4,3 +4,5 @@
 .Ruserdata
 shidashi-templates.Rproj
 .DS_Store
+_rs_job.R
+ui.R
