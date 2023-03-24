@@ -1,3 +1,4 @@
 [submodule "rave-pipelines"]
 	path = rave-pipelines
 	url = https://github.com/rave-ieeg/rave-pipelines
+	branch = main
